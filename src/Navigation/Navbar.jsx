@@ -53,7 +53,7 @@ function Navigation() {
             </button>
           <div
               onClick={handleProfile}
-              className="w-14 h-14 rounded-full -mx-12  cursor-pointer bg-gray-400 hover:bg-gray-600 flex items-center justify-center transition duration-200 overflow-hidden "
+              className="w-14 h-14 rounded-full -mx-2  cursor-pointer bg-gray-400 hover:bg-gray-600 flex items-center justify-center transition duration-200 overflow-hidden "
             >
               <span className="text-xl">👤</span>
               </div>
