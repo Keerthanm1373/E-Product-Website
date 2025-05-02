@@ -131,7 +131,8 @@ function Home() {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-800 mb-2">{product.name}</h3>
+                  <h3 className="text-xl font-semibold text-gray-800 mb-2 line-clamp-2">{product.name}</h3>
+
                     <p className="text-gray-600 mb-1">
                       Status:{" "}
                       <span className={product.productAvailable ? "text-green-600" : "text-red-600"}>
@@ -147,7 +148,7 @@ function Home() {
                     </button>
                     <button
                       onClick={() => handleDetails(product.id)}
-                      className="block mt-2 text-blue-500 hover:underline"
+                      className="block -mt-8 mx-40 text-blue-500 underline"
                     >
                       Details...
                     </button>

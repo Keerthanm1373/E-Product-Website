@@ -1,4 +1,4 @@
-
+import './App.css';
 import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./Auth/Login";
 import Register from "./Auth/Register";
@@ -12,6 +12,7 @@ import AddAddress from "./Components/AddAddress";
 import UpdateAddress from "./Components/UpdateAddress";
 function App() {
   return (
+    
     <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
