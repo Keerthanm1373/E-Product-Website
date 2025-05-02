@@ -221,9 +221,12 @@ function Register() {
 
           <p className="mt-4 text-center text-gray-600">
             Already have an account?{" "}
-            <a href="/login" className="text-blue-500">
-              Login
-            </a>
+            <button
+            onClick={() => navigate("/login")}
+            className="text-blue-600 hover:underline font-semibold"
+          >
+            Login
+          </button>
           </p>
         </div>
       )}
