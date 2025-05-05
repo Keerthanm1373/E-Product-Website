@@ -99,54 +99,53 @@ function UpdateProduct() {
           <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">Update Product</h2>
           <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-              <label className="block text-sm font-medium text-gray-700">Product Id</label>
+              <label className="block text-base font-medium text-gray-700 ">Product Id</label>
               <input
                 type="text"
                 name="name"
                 value={product.id}
-                onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 p-1 block w-full  border rounded-md border-gray-600 bg-gray-200"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Product Name</label>
+              <label className="block text-base font-medium text-gray-700">Product Name</label>
               <input
                 type="text"
                 name="name"
                 value={product.name}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+                className="mt-1 p-1 block w-full  border rounded-md border-gray-600"
                 required
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Description</label>
+              <label className="block text-base font-medium text-gray-700">Description</label>
               <textarea
                 name="description"
                 value={product.description}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                className="mt-1 p-1 block w-full  border rounded-md border-gray-600"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Price</label>
+              <label className="block text-base font-medium text-gray-700">Price</label>
               <input
                 type="number"
                 name="price"
                 value={product.price}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                className="mt-1 p-1 block w-full  border rounded-md border-gray-600"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700">Category</label>
+              <label className="block text-base font-medium text-gray-700">Category</label>
               <input
                 type="text"
                 name="category"
                 value={product.category}
                 onChange={handleChange}
-                className="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
+                className="mt-1 p-1 block w-full  border rounded-md border-gray-600"
               />
             </div>
             <div className="flex items-center">
