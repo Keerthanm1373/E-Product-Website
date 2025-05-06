@@ -21,8 +21,7 @@ function Login() {
   
     try {
       const response = await axios.post(`${BASE_URL}/web/login`, formData);
-      console.log("Full Response:", response);
-      console.log("Response Data:", response.data);
+      
   
       let token = null;
   
@@ -106,6 +105,15 @@ function Login() {
             Register here
           </button>
         </p>
+        <p className="mt-4 text-center text-gray-600">
+  <button
+    onClick={() => navigate("/forgot-password")}
+    className="text-blue-600 hover:underline font-semibold"
+  >
+    Forgot password?
+  </button>
+</p>
+
       </div>
       )}
     </div>

@@ -16,6 +16,8 @@ function Register() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [timer, setTimer] = useState(0);
+  const [otpLoading, setOtpLoading] = useState(false);
+
 
   const navigate = useNavigate();
   const BASE_URL = import.meta.env.VITE_BASE_URL;
@@ -54,25 +56,29 @@ function Register() {
       setMessage(`Please fill correct ${missing}`);
       return;
     }
-
+  
+    setOtpLoading(true);
     try {
       const check = await axios.get(`${BASE_URL}/web/check-email`, {
         params: { email: formData.email },
       });
-
+  
       if (check.data.exists) {
         setMessage("Email already exists");
         return;
       }
-
+  
       await axios.post(`${BASE_URL}/web/send-otp`, { email: formData.email });
       setMessage("OTP sent to your email");
       setOtpSent(true);
       startTimer();
     } catch (err) {
       setMessage("Failed to send OTP");
+    } finally {
+      setOtpLoading(false);
     }
   };
+  
 
   const verifyOtp = async () => {
     try {
@@ -196,13 +202,18 @@ function Register() {
 
             {!otpVerified && (
               <button
-                type="button"
-                onClick={sendOtp}
-                className="w-full p-2 mt-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 disabled:opacity-50"
-                disabled={timer > 0}
-              >
-                {timer > 0 ? `Resend OTP in ${timer}s` : "Send OTP"}
-              </button>
+              type="button"
+              onClick={sendOtp}
+              className="w-full p-2 mt-2 bg-purple-500 text-white rounded-lg hover:bg-purple-600 disabled:opacity-50"
+              disabled={timer > 0 || otpLoading}
+            >
+              {otpLoading
+                ? "Sending OTP..."
+                : timer > 0
+                ? `Resend OTP in ${timer}s`
+                : "Send OTP"}
+            </button>
+            
             )}
 
             {otpVerified && (

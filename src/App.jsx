@@ -10,6 +10,7 @@ import Cart from "./Components/Cart";
 import Profile from "./Components/Profile"
 import AddAddress from "./Components/AddAddress";
 import UpdateAddress from "./Components/UpdateAddress";
+import ForgotPassword from './Auth/ForgotPassword';
 function App() {
   return (
     
@@ -26,7 +27,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/updateAddress" element={<UpdateAddress />} />
         <Route path="/addAddress" element={<AddAddress />} />
-    
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+
       </Routes>
     </Router>
   );

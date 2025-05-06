@@ -9,6 +9,7 @@
 html, body {
   width: 100%;
   height: 100%;
+  overflow-y: auto; /* only shows scrollbar when needed */
   overflow-x: hidden;
   overscroll-behavior: none;
   background-color: #eff6ff; /* Tailwind blue-50 */
@@ -63,3 +64,5 @@ html, body {
 .read-the-docs {
   color: #888;
 }
+
+
