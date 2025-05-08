@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
-function Login() {
+
+function Login() {  
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [message, setMessage] = useState("");
@@ -35,16 +37,24 @@ function Login() {
   
       if (token) {
         localStorage.setItem("token", token);
+        
+        const decoded = jwtDecode(token);
+        const role = decoded.role || decoded.roles || decoded.authorities?.[0];
+        
+        
+        localStorage.setItem("userRole", role);
+        
         setMessage("✅ Login Successful!");
         setTimeout(() => navigate("/home"), 1000);
-      } else {
+        } else {
         setMessage("❌ Enter valid credentials");
-        localStorage.removeItem("token"); // remove any invalid token
+        localStorage.removeItem("token");
       }
+      
     } catch (error) {
       console.error("Login Error:", error.response?.data || error.message);
       setMessage("❌ Enter valid credentials");
-      localStorage.removeItem("token"); // very important
+      localStorage.removeItem("token"); 
     }finally {
       setLoading(false);
     }

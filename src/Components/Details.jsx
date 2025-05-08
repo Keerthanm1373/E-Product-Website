@@ -8,6 +8,13 @@ function Details() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const BASE_URL = import.meta.env.VITE_BASE_URL
+  const [userRole, setUserRole] = useState("");
+
+  useEffect(() => {
+    const role = localStorage.getItem("userRole");
+    
+    setUserRole(role);
+  }, []);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -119,13 +126,14 @@ function Details() {
                   🔗 View on Store
                 </a>
               )}
-
-              <button
-                onClick={() => navigate(`/updateProduct/${product.id}`)}
-                className="mt-6 mx-10 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl shadow-lg transition duration-200"
-              >
-                ✏️ Update Product
-              </button>
+              {(userRole === "SUPER_ADMIN" || userRole === "ADMIN") && (
+  <button
+    onClick={() => navigate(`/updateProduct/${product.id}`)}
+    className="mt-6 mx-10 bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl shadow-lg transition duration-200"
+  >
+    ✏️ Update Product
+  </button>
+)}
             </div>
           </div>
           <hr className="w-5/6 my-4 border-t-2 border-gray-500 rounded" />

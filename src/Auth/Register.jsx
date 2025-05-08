@@ -8,7 +8,7 @@ function Register() {
     email: "",
     password: "",
     confirmPassword: "",
-    roles: "ROLE_ADMIN",
+    roles: "ADMIN",
   });
   const [otpSent, setOtpSent] = useState(false);
   const [otp, setOtp] = useState("");
@@ -179,7 +179,7 @@ function Register() {
             />
 
             {/* Hidden role, default ADMIN */}
-            <input type="hidden" name="roles" value="ROLE_ADMIN" />
+            <input type="hidden" name="roles" value="ADMIN" />
 
             {otpSent && !otpVerified && (
               <>

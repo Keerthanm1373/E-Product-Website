@@ -7,13 +7,16 @@ import AddProduct from "./Components/addproduct";
 import Details from "./Components/Details";
 import UpdateProduct from "./Components/UpdateProduct";
 import Cart from "./Components/Cart";
-import Profile from "./Components/Profile"
+import Profile from "./Components/Profile";
 import AddAddress from "./Components/AddAddress";
 import UpdateAddress from "./Components/UpdateAddress";
 import ForgotPassword from './Auth/ForgotPassword';
+import UpdateRoles from './Components/UpdateRoles'; // ⬅️ Add this import
+
 function App() {
+  const userRole = localStorage.getItem("userRole");
+
   return (
-    
     <Router>
       <Routes>
         <Route path="/" element={<Navigate to="/login" />} />
@@ -28,9 +31,12 @@ function App() {
         <Route path="/updateAddress" element={<UpdateAddress />} />
         <Route path="/addAddress" element={<AddAddress />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/update-roles" element={<UpdateRoles />} /> {/* Add this route */}
 
+    
       </Routes>
     </Router>
   );
 }
+
 export default App;
