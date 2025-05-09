@@ -11,7 +11,7 @@ import Profile from "./Components/Profile";
 import AddAddress from "./Components/AddAddress";
 import UpdateAddress from "./Components/UpdateAddress";
 import ForgotPassword from './Auth/ForgotPassword';
-import UpdateRoles from './Components/UpdateRoles'; // ⬅️ Add this import
+import UpdateRoles from './Components/UpdateRoles'; 
 
 function App() {
   const userRole = localStorage.getItem("userRole");
